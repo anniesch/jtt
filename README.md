@@ -1,5 +1,10 @@
 # Just Train Twice: Improving Group Robustness without Training Group Information
 
+This code implements the following paper: 
+
+> [Just Train Twice: Improving Group Robustness without Training Group Information](https://arxiv.org/pdf/2107.09044.pdf)
+
+
 ## Environment
 
 Create an environment with the following commands:
@@ -12,9 +17,22 @@ pip install -r requirements.txt
 ## Downloading Datasets
 
 - **Waterbirds:** Download waterbirds from [here](https://nlp.stanford.edu/data/dro/waterbird_complete95_forest2water2.tar.gz) and put it in `jtt/cub`.
+    - In that directory, our code expects `data/waterbird_complete95_forest2water2/` with `metadata.csv` inside.
+
 - **CelebA:** Download CelebA from [here](https://www.kaggle.com/jessicali9530/celeba-dataset) and put it in `jtt/celebA`.
+    - In that directory, our code expects the following files/folders:
+        - data/list_eval_partition.csv
+        - data/list_attr_celeba.csv
+        - data/img_align_celeba/
+
 - **MultiNLI:** Follow instructions [here](https://github.com/kohpangwei/group_DRO#multinli-with-annotated-negations) to download this dataset and put in `jtt/multinli`
-- **CivilComments:** This dataset can be downloaded from [here](https://worksheets.codalab.org/rest/bundles/0x8cd3de0634154aeaad2ee6eb96723c6e/contents/blob/) and put it in `jtt/jigsaw`.
+    - In that directory, our code expects the following files/folders:
+        - data/metadata_random.csv
+        - glue_data/MNLI/cached_dev_bert-base-uncased_128_mnli
+        - glue_data/MNLI/cached_dev_bert-base-uncased_128_mnli-mm
+        - glue_data/MNLI/cached_train_bert-base-uncased_128_mnli
+
+- **CivilComments:** This dataset can be downloaded from [here](https://worksheets.codalab.org/rest/bundles/0x8cd3de0634154aeaad2ee6eb96723c6e/contents/blob/) and put it in `jtt/jigsaw`. In that directory, our code expects a folder `data` with the downloaded dataset.
 
 ## **Running our Method**
 
