@@ -48,15 +48,15 @@ Add the following:
 ## Sample Commands for running JTT on Waterbirds
 
 ```
-python generate_downstream.py --exp_name CUB_sample_exp --dataset CUB --n_epochs 50 --lr 1e-5 --weight_decay 1.0 --method ERM
+python generate_downstream.py --exp_name CUB_sample_exp --dataset CUB --n_epochs 300 --lr 1e-5 --weight_decay 1.0 --method ERM
 
 bash results/CUB/CUB_sample_exp/ERM_upweight_0_epochs_300_lr_1e-05_weight_decay_1.0/job.sh
 
-python process_training.py --exp_name CUB_sample_exp --dataset CUB --folder_name ERM_upweight_0_epochs_300_lr_1e-05_weight_decay_1.0 --lr 1e-05 --weight_decay 1.0 --final_epoch 50 --deploy
+python process_training.py --exp_name CUB_sample_exp --dataset CUB --folder_name ERM_upweight_0_epochs_300_lr_1e-05_weight_decay_1.0 --lr 1e-05 --weight_decay 1.0 --final_epoch 60 --deploy
 
-bash results/CUB/CUB_sample_exp/train_downstream_ERM_upweight_0_epochs_300_lr_1e-05_weight_decay_1.0/final_epoch50/JTT_upweight_50_epochs_300_lr_1e-05_weight_decay_1.0/job.sh
+bash results/CUB/CUB_sample_exp/train_downstream_ERM_upweight_0_epochs_300_lr_1e-05_weight_decay_1.0/final_epoch50/JTT_upweight_100_epochs_300_lr_1e-05_weight_decay_1.0/job.sh
 
-python analysis.py --exp_name CUB_sample_exp/train_downstream_ERM_upweight_0_epochs_300_lr_1e-05_weight_decay_1.0/final_epoch50/ --dataset CUB
+python analysis.py --exp_name CUB_sample_exp/train_downstream_ERM_upweight_0_epochs_300_lr_1e-05_weight_decay_1.0/final_epoch60/ --dataset CUB
 ```
 
 ## Sample Commands for running JTT on CelebA
@@ -77,15 +77,15 @@ python analysis.py --exp_name CelebA_sample_exp/train_downstream_ERM_upweight_0_
 ## Sample Commands for running JTT on MultiNLI
 
 ```
-python generate_downstream.py --exp_name MultiNLI_sample_exp --dataset MultiNLI --n_epochs 10 --lr 2e-5 --weight_decay 0 --method ERM
+python generate_downstream.py --exp_name MultiNLI_sample_exp --dataset MultiNLI --n_epochs 5 --lr 2e-5 --weight_decay 0 --method ERM
 
-bash results/MultiNLI/MultiNLI_sample_exp/ERM_upweight_0_epochs_10_lr_2e-05_weight_decay_0/job.sh
+bash results/MultiNLI/MultiNLI_sample_exp/ERM_upweight_0_epochs_5_lr_2e-05_weight_decay_0/job.sh
 
-python process_training.py --exp_name MultiNLI_sample_exp --dataset MultiNLI --folder_name ERM_upweight_0_epochs_10_lr_2e-05_weight_decay_0 --lr 1e-05 --weight_decay 0.1 --final_epoch 2 --deploy
+python process_training.py --exp_name MultiNLI_sample_exp --dataset MultiNLI --folder_name ERM_upweight_0_epochs_5_lr_2e-05_weight_decay_0.0_nobert --lr 1e-05 --weight_decay 0.1 --final_epoch 2 --deploy
 
-bash results/MultiNLI/MultiNLI_sample_exp/train_downstream_ERM_upweight_0_epochs_10_lr_2e-05_weight_decay_0/final_epoch2/JTT_upweight_4_epochs_10_lr_2e-05_weight_decay_0/job.sh
+bash results/MultiNLI/MultiNLI_sample_exp/train_downstream_ERM_upweight_0_epochs_5_lr_2e-05_weight_decay_0.0/final_epoch2/JTT_upweight_4_epochs_5_lr_2e-05_weight_decay_0/job.sh
 
-python analysis.py --exp_name MultiNLI_sample_exp/train_downstream_ERM_upweight_0_epochs_10_lr_2e-05_weight_decay_0/final_epoch2/ --dataset MultiNLI
+python analysis.py --exp_name MultiNLI_sample_exp/train_downstream_ERM_upweight_0_epochs_5_lr_2e-05_weight_decay_0.0/final_epoch2/ --dataset MultiNLI
 ```
 
 

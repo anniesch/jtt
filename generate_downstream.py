@@ -1,10 +1,12 @@
 import argparse
 import pandas as pd
 import os
+import subprocess
 
 join = os.path.join
 
 initialization_text = """"""
+
 final_text = """
 
 # done
@@ -83,7 +85,7 @@ def generate_downstream_commands(args):
 
     for method in methods:
         if method == "JTT":
-            up_weights = [-1, 4, 6, 10, 50]
+            up_weights = [20, 50, 100] 
             loss_type = "erm"
             aug_col = args.aug_col
             confounder_name = args.confounder_name
@@ -160,6 +162,7 @@ def generate_downstream_commands(args):
                 file.write("\n")
                 file.write(final_text)
             print(f"\nsaved in {job_script_path}\n\n")
+#             subprocess.run(f"sbatch {job_script_path}", check=True, shell=True)
 
 
 if __name__ == "__main__":
@@ -239,8 +242,9 @@ if __name__ == "__main__":
         args.target = "waterbird_complete95"
         args.confounder_name = "forest2water2"
         args.model = "resnet50"
-        args.batch_size = 128
+        args.batch_size = 64
         args.n_epochs = 300
+        args.memory = 30 if not args.memory else args.memory
         args.metadata_csv_name = "metadata.csv" if not args.metadata_csv_name else args.metadata_csv_name
     elif args.dataset == "CelebA":
         args.root_dir = "./"
@@ -259,7 +263,7 @@ if __name__ == "__main__":
         args.batch_size = 32
         args.model = "bert"
         args.memory = 30 if not args.memory else args.memory
-        args.n_epochs = 10
+        args.n_epochs = 5
         args.metadata_csv_name = "metadata.csv" if not args.metadata_csv_name else args.metadata_csv_name
     elif args.dataset == "jigsaw":
         args.root_dir = "./jigsaw"
@@ -270,7 +274,7 @@ if __name__ == "__main__":
 #         args.batch_size = 16 # no-bert-param: 24
         args.n_epochs = 3
         args.model = "bert-base-uncased"
-        args.memory = 30 if not args.memory else args.memory
+        args.memory = 60 if not args.memory else args.memory
         args.final_epoch = 0
         args.metadata_csv_name = "all_data_with_identities.csv" if not args.metadata_csv_name else args.metadata_csv_name
     else:

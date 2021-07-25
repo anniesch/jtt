@@ -327,7 +327,7 @@ def train(
                 args,
                 is_training=False,
                 csv_name=csv_name,
-                wandb_group="val",
+                wandb_group="test",
                 wandb=wandb,
             )
 
