@@ -268,7 +268,7 @@ if __name__ == "__main__":
     elif args.dataset == "jigsaw":
         args.root_dir = "./jigsaw"
         args.target = "toxicity"
-        args.confounder_name = "only_label"
+        args.confounder_name = "identity_any"
 #         args.lr = 1e-5 # no-bert-param: 2e-5
 #         args.weight_decay = 0.01 # no-bert-param: 0.0
 #         args.batch_size = 16 # no-bert-param: 24
