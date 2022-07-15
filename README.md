@@ -27,7 +27,7 @@ pip install -r requirements.txt
 
 - **MultiNLI:** Follow instructions [here](https://github.com/kohpangwei/group_DRO#multinli-with-annotated-negations) to download this dataset and put in `jtt/multinli`
     - In that directory, our code expects the following files/folders:
-        - data/metadata_random.csv
+        - data/metadata.csv
         - glue_data/MNLI/cached_dev_bert-base-uncased_128_mnli
         - glue_data/MNLI/cached_dev_bert-base-uncased_128_mnli-mm
         - glue_data/MNLI/cached_train_bert-base-uncased_128_mnli
@@ -97,11 +97,11 @@ python analysis.py --exp_name CelebA_sample_exp/train_downstream_ERM_upweight_0_
 ```
 python generate_downstream.py --exp_name MultiNLI_sample_exp --dataset MultiNLI --n_epochs 5 --lr 2e-5 --weight_decay 0 --method ERM
 
-bash results/MultiNLI/MultiNLI_sample_exp/ERM_upweight_0_epochs_5_lr_2e-05_weight_decay_0/job.sh
+bash results/MultiNLI/MultiNLI_sample_exp/ERM_upweight_0_epochs_5_lr_2e-05_weight_decay_0.0/job.sh
 
-python process_training.py --exp_name MultiNLI_sample_exp --dataset MultiNLI --folder_name ERM_upweight_0_epochs_5_lr_2e-05_weight_decay_0.0_nobert --lr 1e-05 --weight_decay 0.1 --final_epoch 2 --deploy
+python process_training.py --exp_name MultiNLI_sample_exp --dataset MultiNLI --folder_name ERM_upweight_0_epochs_5_lr_2e-05_weight_decay_0.0 --lr 1e-05 --weight_decay 0.1 --final_epoch 2 --deploy
 
-bash results/MultiNLI/MultiNLI_sample_exp/train_downstream_ERM_upweight_0_epochs_5_lr_2e-05_weight_decay_0.0/final_epoch2/JTT_upweight_4_epochs_5_lr_2e-05_weight_decay_0/job.sh
+bash results/MultiNLI/MultiNLI_sample_exp/train_downstream_ERM_upweight_0_epochs_5_lr_2e-05_weight_decay_0.0/final_epoch2/JTT_upweight_4_epochs_5_lr_2e-05_weight_decay_0.1/job.sh
 
 python analysis.py --exp_name MultiNLI_sample_exp/train_downstream_ERM_upweight_0_epochs_5_lr_2e-05_weight_decay_0.0/final_epoch2/ --dataset MultiNLI
 ```
